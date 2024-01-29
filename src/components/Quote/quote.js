@@ -20,7 +20,7 @@ const Quote = () => {
   }, []); // Empty dependency array ensures the effect runs only once
 
   return (
-    <div className="container">
+    <div className="container1">
         <div className = "quote">
       <h2>Random Quote:</h2>
       <p>{quote}</p>
