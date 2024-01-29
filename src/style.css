@@ -121,3 +121,81 @@ section{
   min-height: 100vh;
   padding: 10rem 9% 10rem;
 }
+
+@media(max-width:1200px){
+  html{
+      font-size: 65%;
+  }
+  .projects-container{
+      padding-bottom: 7rem;
+      grid-template-columns: repeat(1,1fr);
+      margin: 0 5rem;
+  }
+}
+
+@media(max-width: 1000px){
+  header{
+      padding: 2rem 3%;
+  }
+  section{
+      padding: 10rem 3% 2rem;
+  }
+  .services{
+      padding-bottom: 7rem;
+  }
+  .footer{
+      padding: 2rem 3%;
+  }
+}
+
+@media(max-width: 955px){
+  #menu-icon{
+      display: block;
+  }
+  .nav-menu{
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 40%;
+      border-left: 3px solid var(--text-color);
+      border-bottom: 3px solid var(--text-color);
+      border-bottom-left-radius: 2em;
+      padding: 1rem 3%;
+      background: #FDF6F3;
+      border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+      display: none;
+  }
+  .nav-menu.nav-active{
+      display: block;
+  }
+
+  .nav-menu a{
+      display: block;
+      font-size: 2rem;
+      margin: 3rem 0;
+  }
+  .home{
+      flex-direction: column;
+      margin: 5rem 4rem;
+  }
+
+  .home-content h3{
+      font-size:2.6rem;
+  }
+  .home-content h1{
+      font-size: 5rem;
+  }
+  .home-img img{
+      width: 90vw;
+      margin-top: 4rem;
+  }
+  .services h2{
+      margin-bottom: 3rem;
+  }
+  .projects h2{
+      margin-bottom: 3rem;
+  }
+
+}
+
+
