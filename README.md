@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+**1. What is NPM?**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+   Node Package Manager is a package manager and a software register that allows one to install, uninstall, and update packages in the Node.js environment.
+   
+**2. What is SPA?**
 
-## Available Scripts
+   Single Page Application is a web application that dynamically rewites the a single page as the user interacts with it rather than follow the deafult way of reloading an entirely different page.
+   
+**3. What is the event loop?**
 
-In the project directory, you can run:
+   Javascript essentially has a runtime model that is based on an event loop which continually looks for pending events in a queue and executes callback functions, ensuring that I/O operations don't block the execution of other code. Moreover, it is responsible for executing code,collecting and processing events.
+   
+**4. What is the difference between export x and export default x? How do you import them differently?**
 
-### `npm start`
+   **export default x:** It allows one to export a single 'main' value as the default export in a module. While importing, it allows one to use a custom name to represent the exported value.
+   
+  **export x:** It is also known as 'named export' because it allows one to export multiple values but with specific names. While importing, one can only use the exact exported names enclosed in curly braces.
+   
+**5. Why do you use className as a property in React and not class?**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   This is because 'class' is a reserved keyword in javascript and since in react we use JSX, a javascript extension, we have to follow that convention to avoid any conflicts.
+   
+**6. Why should you not write the following? What will happen?**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+<button onClick={setCounter(counter + 1)}> +1 </button>
+```
+One should not write the function in the above manner because it causes an infinite loop. The loop is as a result of setCounter being invoked every time the react component is rendered, changing the current state declared using 'useState()' even before the user clicks the button. Every time the state is changed, the react component has to be rerendered which then loops infinitely causing the 'Too many rerenders' error.
 
-### `npm test`
+**7. What is object deconstruction and how is it connected to React components (example)?**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   Object destructuring is the process of extracting values from objects and binding them to variables. This makes code more concise and easy to read and understand.
 
-### `npm run build`
+   In regard to React components, object destructuring is often used to extract values from objects, such as state and props.
+   
+   **For example:**
+   ```
+   function StudentProfile(props) {
+    // destructing name, age and course from props
+       const{name, age, course} = props;
+       return (
+          <div>
+              <h1>Name: {name}!</h1>
+              <p>Age: {age}</p>
+              <p>Course: {course}</p>
+         </div>
+      );
+    };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   //usage
+   function App() {
+        return (
+            <div>
+                  {/* Using StudentProfile and passing the props */}
+                  <StudentProfile name="John" age=25, course="Journalism" />
+            </div>
+      );
+    };
+```
+**8. How is it possible to use HTML and JavaScript in the same function (like in a React Component)? What makes it possible under the hood?**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   It is possible because of the use of JSX, javascript extension, which allows one to write HTML-like code on javascript files. It looks like HTML/XML but it is entirely JSX.
+   What makes possible under the hood is the Babel tool which compiles JSX into React.createElement calls, which ultimately creates a virtual DOM representation of the code that browsers can easily understand.
+   
+   **For example:**
+   
+   JSX
+   ```
+   <button style={{ color: 'blue' }}>Press me</button>
+   ```
 
-### `npm run eject`
+   Virtual DOM
+   
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```
+   React.createElement(
+      'button',
+       { style: { color: 'blue' } },
+      'Press me'
+   );
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**9. What is async/await? Bring an example**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   **async:** This keyword allows one to write promises-based code as if it was synchronous and ensures that execution thread is not broken. Async functions will always ensure that a promise is returned and if it is not returned then JavaScript automatically wraps it in a promise which is resolved with its value.
+    
+   **For example:**
+   
+     async function greeting() {
+         return Promise.resolve("hey");
+      }
+      
+      greeting().then(alert);
+     
+   The function above always returns the value "hey" no matter what.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   **await:** This keyword is used inside an async function to pause its execution and wait for a Promise to resolve before continuing.
+   
+   **For example:**
 
-## Learn More
+   ```
+   async function greeting() {
+       let timer = new Promise((resolve, reject) => {
+           setTimeout(() => resolve("hey"), 3000)});
+       let result = await timer; // waits until the promise resolves
+       alert(result); 
+    }
+    
+   greeting();
+   ```
+  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   The function above displays 'hey' after 3 seconds because the variable 'result' has to wait until the promise is resolved before the value is stored in it and in turn, displayed.
+   
+**10. What is a Promise? Bring an example**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   A promise is an object that represents the eventual completion or failure of an asynchronous operation. In other words, it will produce a single value over time that will represent either the completion or failure of the asychronous operation.
+   
+**For example:**
+```
+let similarity = new Promise(function (resolve, reject) {
+    const x = "Ilovemath";
+    const y = "Ilovemathy"
+    if (x === y) {
+        resolve();
+    } else {
+        reject();
+    }
+}); 
+promise.
+    then(function () {
+        console.log('Success, the texts match');
+    }).
+    catch(function () {
+        console.log('Some error has occurred');
+    });
+  ```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The example above shows how promise can be used. In this case, "Some error has occurred", will be returned because the promise failed to resolve and thus rejected.
