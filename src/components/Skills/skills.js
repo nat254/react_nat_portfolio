@@ -8,10 +8,10 @@ const Skills = () => {
 
         <div className="skills">
         <div className="skill-box">
-            <span className="title">HTML</span>
+            <span className="title">MySQL</span>
             <div className="skill-bar">
                 <span className="skill-per html">
-                    <span className="tooltip">90%</span>
+                    <span className="tooltip">70%</span>
                 </span>
             </div>
         </div>
@@ -26,10 +26,10 @@ const Skills = () => {
         </div>
 
         <div className="skill-box">
-            <span className="title">Javascript</span>
+            <span className="title">HTML</span>
             <div className="skill-bar">
                 <span className="skill-per js">
-                    <span className="tooltip">40%</span>
+                    <span className="tooltip">80%</span>
                 </span>
             </div>
         </div>
@@ -44,10 +44,10 @@ const Skills = () => {
         </div>
 
         <div className="skill-box">
-            <span className="title">MySQL</span>
+            <span className="title">Javascript</span>
             <div className="skill-bar">
                 <span className="skill-per mysql">
-                    <span className="tooltip">70%</span>
+                    <span className="tooltip">50%</span>
                 </span>
             </div>
         </div>
