@@ -6,18 +6,18 @@ const Navbar = () => {
   return (
     <header className="header">
        {/*logo*/}
-        <Link href="#home" className="logo"> Natalie <span>Ndetei</span></Link>
+        <a href="#home" className="logo"> Natalie <span>Ndetei</span></a>
 
       {/*toggle*/}
         <i className="bx bx-menu" id="menu-icon" />
 
       {/*navbar*/}
       <nav className="nav-menu">
-          <Link href="#home" className="nav-active"> Home</Link>
-          <Link href="#services">About</Link>
-          <Link href="#skills">Skills</Link>
-          <Link href="#projects">Projects</Link>
-          <Link href="#contact">Contact</Link>
+          <a href="#home" className="nav-active"> Home</a>
+          <a href="#services">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
       </nav>
     </header>
 
