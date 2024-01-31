@@ -1,3 +1,9 @@
+**THE DEPLOYMENT LINK:**
+
+https://nat254.github.io/react_nat_portfolio/
+
+
+
 **1. What is NPM?**
 
    Node Package Manager is a package manager and a software register that allows one to install, uninstall, and update packages in the Node.js environment.
